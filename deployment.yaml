@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaira-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kaira
+  template:
+    metadata:
+      labels:
+        app: kaira
+    spec:
+      containers:
+      - name: kaira
+        image: kaira-app:1.0
+        ports:
+        - containerPort: 80
